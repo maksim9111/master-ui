@@ -12,6 +12,8 @@ COPY . .
 ENV NODE_ENV=production
 ENV NODE_OPTIONS=--max-old-space-size=1536
 RUN npm run build
+# Compile TypeScript config and src files for production runtime
+RUN npx tsc --project tsconfig.json || true
 
 FROM node:22-alpine AS runner
 WORKDIR /app
@@ -21,9 +23,12 @@ COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/config ./config
+# Use compiled JS config files (Strapi production only loads .js/.json)
+COPY --from=builder /app/dist/config ./config
 COPY --from=builder /app/database ./database
+# Copy source JSON schemas first, then overlay compiled JS files
 COPY --from=builder /app/src ./src
+COPY --from=builder /app/dist/src ./src
 COPY --from=builder /app/favicon.png ./
 EXPOSE 1337
 CMD ["npm", "run", "start"]
