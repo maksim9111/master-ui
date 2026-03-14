@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blocks_partners_brands",
+  "info": {
+    "displayName": "partners-brands"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

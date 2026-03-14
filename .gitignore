@@ -1,0 +1,32 @@
+# env files (secrets!)
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Node
+node_modules/
+
+# Next.js
+.next/
+
+# Docker data
+data/
+
+# Strapi
+apps/backend/dist/
+apps/backend/build/
+apps/backend/.strapi/
+apps/backend/public/uploads/*
+!apps/backend/public/uploads/.gitkeep
+
+# Claude
+.claude/

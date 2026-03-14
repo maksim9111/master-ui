@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "footer"
+  },
+  "options": {},
+  "attributes": {
+    "menuItems": {
+      "type": "component",
+      "component": "shared.nav-item",
+      "repeatable": true
+    },
+    "socialLinks": {
+      "type": "component",
+      "component": "shared.social-link",
+      "repeatable": true
+    },
+    "copyright": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

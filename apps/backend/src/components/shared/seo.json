@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_shared_seos",
+  "info": {
+    "displayName": "seo",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "canonicalUrl": {
+      "type": "string"
+    },
+    "ogTitle": {
+      "type": "string"
+    },
+    "ogDescription": {
+      "type": "text"
+    },
+    "ogImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "robots": {
+      "type": "string"
+    },
+    "jsonLd": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}

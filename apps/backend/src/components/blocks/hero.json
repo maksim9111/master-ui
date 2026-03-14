@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_blocks_heroes",
+  "info": {
+    "displayName": "hero",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "phoneLabel": {
+      "type": "string"
+    },
+    "phoneValue": {
+      "type": "string"
+    },
+    "primaryButtonText": {
+      "type": "string"
+    },
+    "primaryButtonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
