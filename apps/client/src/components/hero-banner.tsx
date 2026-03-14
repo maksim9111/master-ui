@@ -12,15 +12,6 @@ function isModalTrigger(link?: string | null): boolean {
     return !!link && MODAL_TRIGGERS.includes(link);
 }
 
-const PUBLIC_STRAPI_URL =
-    process.env.NEXT_PUBLIC_CMS_URL || "http://localhost:1337";
-
-function getStrapiMediaUrl(url?: string | null) {
-    if (!url) return null;
-    if (url.startsWith("http://") || url.startsWith("https://")) return url;
-    return `${PUBLIC_STRAPI_URL}${url}`;
-}
-
 export function HeroBanner({ hero, global }: HeroBannerProps) {
     const title = hero?.title || "Комплексные решения для вашего бизнеса";
     const subtitle =
@@ -28,27 +19,18 @@ export function HeroBanner({ hero, global }: HeroBannerProps) {
         global.siteDescription ||
         "Разрабатываем, внедряем и сопровождаем IT-решения, которые помогают бизнесу расти и масштабироваться.";
     const eyebrow = hero?.eyebrow || global.siteName;
-    const bgImage = getStrapiMediaUrl(hero?.backgroundImage?.url);
 
     return (
         <section className="relative overflow-hidden px-6 pb-32 pt-24 sm:pb-40 sm:pt-32">
             {/* Background image + overlay */}
             <div className="absolute inset-0 -z-10">
-                {bgImage ? (
-                    <img
-                        src={bgImage}
-                        alt=""
-                        className="absolute inset-0 h-full w-full object-cover"
-                    />
-                ) : (
-                    <div
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                        style={{
-                            backgroundImage:
-                                "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80')",
-                        }}
-                    />
-                )}
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage:
+                            "url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80')",
+                    }}
+                />
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/60" />
                 {/* Gradient fade to page bg */}
