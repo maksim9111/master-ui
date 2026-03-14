@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 async function getGlobal() {
     return fetchStrapi<StrapiSingleResponse<GlobalSettings>>(
-        "/api/global"
+        "/api/global?populate[logo]=true&populate[favicon]=true&populate[header][populate][0]=menuItems&populate[footer][populate][0]=menuItems&populate[footer][populate][1]=socialLinks"
     );
 }
 

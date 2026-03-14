@@ -13,11 +13,11 @@ function isModalTrigger(link?: string | null): boolean {
 }
 
 export function HeroBanner({ hero, global }: HeroBannerProps) {
-    const title = hero?.title || "Комплексные решения для вашего бизнеса";
+    const title = hero?.title || "Производство натяжных потолков";
     const subtitle =
         hero?.subtitle ||
         global.siteDescription ||
-        "Разрабатываем, внедряем и сопровождаем IT-решения, которые помогают бизнесу расти и масштабироваться.";
+        "Лидеры отрасли с 2020 года. Мы предлагаем лучшие цены, условия, бесплатную доставку по городу и Центрально-Черноземному региону для дилеров.";
     const eyebrow = hero?.eyebrow || global.siteName;
 
     return (

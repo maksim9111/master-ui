@@ -25,13 +25,13 @@ function getStrapiMediaUrl(url?: string | null) {
 
 async function getGlobal() {
     return fetchStrapi<StrapiSingleResponse<GlobalSettings>>(
-        "/api/global"
+        "/api/global?populate[logo]=true&populate[favicon]=true&populate[header][populate][0]=menuItems&populate[footer][populate][0]=menuItems&populate[footer][populate][1]=socialLinks"
     );
 }
 
 async function getHomePage() {
     return fetchStrapi<StrapiSingleResponse<HomePage>>(
-        "/api/home-page"
+        "/api/home-page?populate[seo][populate][0]=ogImage&populate[hero]=true&populate[partners][populate][0]=logo"
     );
 }
 
