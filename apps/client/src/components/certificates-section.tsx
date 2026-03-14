@@ -1,10 +1,10 @@
-import type { CertificatesComponent } from "@/src/types/strapi";
+import type { CertificateItem, CertificatesComponent } from "@/src/types/strapi";
 
 type CertificatesSectionProps = {
     data?: CertificatesComponent | null;
 };
 
-const fallbackCertificates = [
+const fallbackCertificates: CertificateItem[] = [
     { title: "ISO 9001:2015", issuer: "Bureau Veritas", year: "2023" },
     { title: "Microsoft Gold Partner", issuer: "Microsoft", year: "2024" },
     { title: "Google Cloud Partner", issuer: "Google", year: "2024" },
