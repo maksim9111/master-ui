@@ -18,17 +18,21 @@ export async function fetchStrapi<T>(path: string, options: FetchOptions = {}): 
         headers.set("Authorization", `Bearer ${token}`);
     }
 
-    const response = await fetch(url, {
-        ...options,
-        headers,
-        next: options.next ?? { revalidate: 60 },
-    });
+    try {
+        const response = await fetch(url, {
+            ...options,
+            headers,
+            next: options.next ?? { revalidate: 60 },
+        });
 
-    if (!response.ok) {
-        throw new Error(`Strapi request failed: ${response.status} ${response.statusText} (${url})`);
+        if (!response.ok) {
+            console.error(`[strapi] ${response.status} ${response.statusText} (${url})`);
+            return { data: {} } as T;
+        }
+
+        return await response.json();
+    } catch (err) {
+        console.error(`[strapi] Failed to fetch ${url}:`, err instanceof Error ? err.message : err);
+        return { data: {} } as T;
     }
-
-    const json = await response.json();
-    console.log(`[strapi] ${path}`, JSON.stringify(json, null, 2).slice(0, 2000));
-    return json;
 }
