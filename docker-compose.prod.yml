@@ -36,6 +36,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./data/strapi/uploads:/app/public/uploads
+      - ./apps/backend/config-prod:/app/config
     env_file:
       - ./.env
     environment:
